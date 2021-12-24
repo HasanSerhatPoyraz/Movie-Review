@@ -18,7 +18,7 @@ namespace webProje.Models
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=SERHATPC; database=moviereviewsmain; integrated security=true; ");
+            optionsBuilder.UseSqlServer("server=localhost; database=moviereviewsmain; integrated security=true; ");
 
         }
         public DbSet<Movie> Movies { get; set; }
