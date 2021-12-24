@@ -1,0 +1,50 @@
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+@model IEnumerable<Movie>
+
+@using Microsoft.AspNetCore.Mvc.Localization
+
+
+
+
+<div>
+    <a style="color:orange;" asp-action="Addmovie" asp-controller="Home">@localizer["addMovie"]</a>&nbsp;&nbsp;&nbsp;
+    <a style="color:orange;" asp-action="Addcategory" asp-controller="Home">@localizer["addCateg"]</a>
+</div>
+<br />
+@foreach (var movie in Model)
+{
+    <div class="card mb-3">
+        <div class="row no-gutter">
+            <div class="col-md-9">
+                <div class="card-body">
+                    <h5 style="color:orange;" class="card-title">
+                        <a>@movie.Name</a>
+                    </h5>
+                    <p class="card-text">
+                        @movie.shortDescription
+                    </p>
+
+                </div>
+            </div>
+            <div class="col-md-3 " style="margin-top:35px;">
+                <div>
+                    <a style="color:orange;" asp-action="Details" asp-controller="Home" asp-route-id="@movie.Id">@localizer["details"]</a>&nbsp;
+
+                    <a style="color:orange;" asp-action="UpdateMovie" asp-controller="Home" asp-route-id="@movie.Id">@localizer["update"]</a>&nbsp;
+
+                    <a style="color:orange;" asp-action="DeleteMovie" asp-controller="Home" asp-route-id="@movie.Id">@localizer["delete"]</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+}
+
+
+
